@@ -1,0 +1,13 @@
+{% extends 'formsa/users.html'%}
+{% block content %}
+<div class="container">
+<form action="" method="Post">
+    {% csrf_token%}
+    {{form.as_ul}}
+    <br>
+    <input class="btn btn danger" type="submit" value="login">
+</form>
+    If you already don't have an account,<a href="/register">register</a>instead.
+    Forgot password..?<a href="/register">click here!!!</a>
+</div>
+{% endblock %}

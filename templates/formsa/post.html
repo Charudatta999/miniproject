@@ -1,0 +1,29 @@
+{% extends 'formsa/users.html'%} {% block content %}
+
+<div class="row">
+    <form class="col s12" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="input-field col s12">
+
+                    {{aform.non_field_errors}}
+                        {% for field in aform %}
+                        <div class="row">
+                                    {{field.label_tag}} {{field}}
+                                        {{fiel.errors}}
+
+                        </div>
+                        {% endfor %}
+                <input class="btn btn danger" type="submit" value="post">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<style>
+    .errorList{
+
+    }
+</style>
+
+{% endblock %}

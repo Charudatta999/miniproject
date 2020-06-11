@@ -1,0 +1,23 @@
+{% extends 'formsa/users.html'%}
+{% block content %}
+
+<div class="row col-lg-12">
+
+{% for r in object_list %}
+
+<div class="card blur  border-success  col-lg-3" style=" width: 10rem; ">
+        <img src="{{r.photo.url}}" class="img-thumbnail img-rounded" alt="...">
+   <div class="card-body">
+        <h5 class="card-title">{{r.title}}</h5>
+        <p class="card-text ">{{r.snippet}}</p>
+        <a href="{% url 'formsa:article-detail' r.id %}" class="btn btn-primary">(Full Article)</a>
+  </div>
+</div>
+
+{% if forloop.counter|divisibleby:4 %}
+</div><div class="row"></div>
+
+  {% endif %}
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "formsa/index.html" %} {% load crispy_forms_tags %} {% block content %}
+<!--    <div class="content-section">-->
+<!--      <div class="media">-->
+<!--        <img class="avatar" src="{{ user.profile.avatar.url }}" alt="image_here" height="250" width="250">-->
+<!--        <div class="media-body">-->
+<!--          <h2 class="account-heading">{{ user.username }}</h2>-->
+<!--          <p class="text-secondary">{{ user.email }}</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!-- FORM HERE -->
+</div>
+<section class=" spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        <div class="hero-text">
+                            <legend class="border-bottom mb-4">Profile Info</legend>
+                            <h2>{{ user.username }}</h2>
+                            <p>{{ user.bio }}</p>
+                        </div>
+                        <div class="hero-info">
+                            <h2>General Info</h2>
+                            <ul>
+                                <li><span>Date of Birth:-</span>Aug 25, 1988</li>
+                                <li><span>E-mail:-</span>{{ user.email }}</li>
+                                <li><span>Phone :-</span>{{ user.phone }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <figure class="hero-image">
+                            <img src="{{ user.profile.avatar.url }} " alt="5" height="250" width="250">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<form class="contact-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group">
+
+        {{ u_form|crispy }} {{ p_form|crispy }}
+    </fieldset>
+    <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Update</button>
+    </div>
+</form>
+
+{% endblock content %}

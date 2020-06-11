@@ -1,0 +1,20 @@
+{% extends 'formsa/users.html'%}<body>
+{% block content %}
+<div class="blog-post">
+        <h2 class="blog-post-title">{{ obj.title }}</h2>
+        <p class="blog-post-meta">{{obj.date_posted}} <em>{{ obj.author }}</em></p>
+
+        <hr>
+        <blockquote>
+          <h4>{{ obj.sub_heading }}</h4>
+        </blockquote>
+
+        <p>{{obj.text}}</p>
+             </div>
+
+
+
+<img class="img-responsive" src="{{ obj.photo.url }}" width=200rem height=200rem>
+{% endblock %}
+<br>
+</body>
